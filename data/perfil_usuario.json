@@ -1,0 +1,29 @@
+{
+  "nome": "João Silva",
+  "idade": 32,
+  "profissao": "Analista de Sistemas",
+  "renda_mensal": 5000.0,
+  "dia_pagamento": 5,
+  "orcamento_mensal_limites": {
+    "alimentacao": 1200.0,
+    "assinaturas": 150.0,
+    "transporte": 400.0,
+    "lazer": 500.0
+  },
+  "preferencias_alertas": {
+    "ativar_alertas": true,
+    "avisar_em_percentual": 80
+  },
+  "metas_de_economia": [
+    {
+      "meta": "Reduzir gastos com delivery",
+      "limite_estipulado": 300.0,
+      "frequencia": "mensal"
+    },
+    {
+      "meta": "Juntar para viagem de férias",
+      "valor_necessario": 3000.0,
+      "prazo": "2026-12"
+    }
+  ]
+}

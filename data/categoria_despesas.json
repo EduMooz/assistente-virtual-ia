@@ -1,0 +1,45 @@
+[
+  {
+    "categoria": "Alimentação",
+    "subcategorias": [
+      "Delivery",
+      "Mercado",
+      "Restaurante",
+      "Padaria"
+    ],
+    "limite_alerta": "Avisar quando atingir 80% do limite semanal",
+    "dica_cadu": "Sempre que o gasto com delivery apertar, eu te lembro de dar uma olhada na geladeira primeiro!"
+  },
+  {
+    "categoria": "Assinaturas e Serviços",
+    "subcategorias": [
+      "Streaming",
+      "Música",
+      "Internet",
+      "Software"
+    ],
+    "limite_alerta": "Avisar se houver cobrança duplicada ou aumento de valor",
+    "dica_cadu": "Muitos streamings de uma vez? Vamos revisar o que você realmente tem assistido esse mês."
+  },
+  {
+    "categoria": "Transporte",
+    "subcategorias": [
+      "Aplicativo",
+      "Transporte Público",
+      "Combustível"
+    ],
+    "limite_alerta": "Avisar quando ultrapassar o orçamento semanal",
+    "dica_cadu": "As corridas de app estão pesando? Podemos calcular juntos se vale a pena mudar a rota amanhã."
+  },
+  {
+    "categoria": "Lazer e Cuidados",
+    "subcategorias": [
+      "Cinema",
+      "Beleza",
+      "Saúde",
+      "Jogos"
+    ],
+    "limite_alerta": "Avisar no fim de semana para controle",
+    "dica_cadu": "Cuidar de você é essencial, meu papel é só garantir que o orçamento não fique no vermelho."
+  }
+]

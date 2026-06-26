@@ -1,6 +1,6 @@
 data,canal,tema,resumo,resolvido
-2025-09-15,chat,CDB,Cliente perguntou sobre rentabilidade e prazos,sim
-2025-09-22,telefone,Problema no app,Erro ao visualizar extrato foi corrigido,sim
-2025-10-01,chat,Tesouro Selic,Cliente pediu explicação sobre o funcionamento do Tesouro Direto,sim
-2025-10-12,chat,Metas financeiras,Cliente acompanhou o progresso da reserva de emergência,sim
-2025-10-25,email,Atualização cadastral,Cliente atualizou e-mail e telefone,sim
+2025-11-05,chat,Registro de Gasto (Delivery),Cliente registrou gasto rápido com iFood. Cadu categorizou automaticamente como Alimentação e confirmou o saldo.,sim
+2025-11-12,chat,Registro de Gasto (Assinatura),Cliente lançou a cobrança mensal da Netflix. Cadu atualizou a base de dados mockada na pasta data.,sim
+2025-11-15,chat,Orçamento Semanal,Cadu enviou um alerta proativo sobre o limite restante para gastos na categoria Lazer de forma educativa.,sim
+2025-11-20,chat,Confirmação de Gasto Alto,"Cliente tentou registrar um gasto de R$ 600,00. Cadu acionou a estratégia de segurança e pediu confirmação antes de salvar.",sim
+2025-11-25,chat,Limitação (Investimento),Cliente perguntou sobre investimentos em CDB. Cadu explicou educadamente que não faz recomendações e ofereceu ajuda para o orçamento.,sim
