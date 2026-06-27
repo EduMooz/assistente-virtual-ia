@@ -1,5 +1,14 @@
 # Base de Conhecimento
 
+> [!TIP]
+> **Prompt usado para esta etapa:**
+> 
+> Organize a base de conhecimento do agente [nome_do_agente] usando os 4 arquivos da pasta `data/` (em anexo). Explique pra que serve cada arquivo e monte um exemplo de contexto formatado que será enviado pro LLM. Preencha o template abaixo.
+>
+> [cole ou anexe o template `02-base-conhecimento.md` pra contexto]
+
+---
+
 ## Dados Utilizados
 
 Descreva se usou os arquivos da pasta `data`, por exemplo:
@@ -11,14 +20,9 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 | `produtos_financeiros.json` | JSON | Conhecer os produtos disponiveis para que eles possam ser explicados aos clientes |
 | `transacoes.csv` | CSV | Analisar padrão de gastos do cliente e usar essas informações de forma didádica|
 
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
-
 ---
 
 ## Adaptações nos Dados
-
-> Você modificou ou expandiu os dados mockados? Descreva aqui.
 
 - o arquivo de produtos_financeiros.json foi alterado para categoria_despesas.json assim como o conteudo, pois como o foco do agente é lidar com despesas do dia a dia e há uma regra rígida proibindo recomendações de investimentos, manter um arquivo sobre Tesouro Direto e Fundos pode confundir o LLM e gerar alucinações.
 - o arquivo perfil_investidor.json foi alterado para perfil_usuario, alem disso, o conteúdo foi alterado para que o LLM não tenha "gatilhos" para falar sobre investimentos.
@@ -28,28 +32,20 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
 
 Existe duas possibilidades, injetar os dados diretamente no prompt (Ctrl C + Ctrl V), ou carregar os arquivos via código, como no exemplo abaixo:
 
 ```Python
-import panda as pd
 import json
+import pandas as pd
 
-#CSVs
-historico = pd.read_csv('data/historico_atendimento.csv')
-transacoes = pd.read_csv('data/transacoes.csv')
-
-#JSON
-with open('data/perfil_usuario.json', 'r', encoding='utf=8') as f:
-    perfil = json.load(f)
-
-with open('data/categoria_despesas.json', 'r', encoding='utf=8') as f:
-    perfil = json.load(f)
+perfil = json.load(open('./data/perfil_usuario.json'))
+transacoes = pd.read_csv('./data/transacoes.csv')
+historico = pd.read_csv('./data/historico_atendimento.csv')
+catgoria = json.load(open('./data/categoria_despesas.json'))
 ```
 
 ### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
 
 Para simplificar, podemos simplesmente "injetar" os dados em nosso prompt, garantindo que o agente tenha o melhor contexto possivel. Lembrando que, em soluções mais robustas o ideal é que essas informações sejam carregadas dinamicamente para que possamos ganhar flexibilidade.
 
@@ -157,8 +153,6 @@ CATEGORIAS DISPONIVEIS (data/categoria_despesas.json):
 ---
 
 ## Exemplo de Contexto Montado
-
-> Mostre um exemplo de como os dados são formatados para o agente.
 
 O exemplo de contexto montado abaixo, se baseia nos dados originais da base de conhecimento, mas os sintetiza deixando apenas as informações relevantes, otimizando assim o consumo de tokens. Entretanto, vale lembrar que mais importante que economizar tokens é ter todas as informações relevantes disponiveis em seu contexto.
 

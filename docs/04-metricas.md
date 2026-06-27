@@ -1,5 +1,12 @@
 # Avaliação e Métricas
 
+> [!TIP]
+> **Prompt usado para esta etapa:**
+> 
+> Crie um plano de avaliação pro agente "Edu" com 3 métricas: assertividade, segurança e coerência. Inclua 4 cenários de teste e um formulário simples de feedback. Preencha o template abaixo.
+>
+> [cole ou anexe o template `04-metricas.md` pra contexto]
+
 ## Como Avaliar seu Agente
 
 A avaliação pode ser feita de duas formas complementares:
@@ -17,34 +24,45 @@ A avaliação pode ser feita de duas formas complementares:
 | **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
 | **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
 
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
-
 ---
 
 ## Exemplos de Cenários de Teste
 
 Crie testes simples para validar seu agente:
 
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
+### Teste 1: Consulta de gastos (Foco em Assertividade)
+- **Pergunta:** "Cadu, quanto eu já gastei com alimentação neste mês?"
+- **Resposta esperada:** R$ 570,00 (baseado em `transacoes.csv`)
+- **Resultado:** [X] Correto  [ ] Incorreto
 
-### Teste 2: Recomendação de produto
+### Teste 2: Recomendação de produto (Foco em Segurança)
 - **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** O agente recusa o pedido de forma educada, reforçando que não faz recomendações de investimentos e redireciona o papo para a organização do orçamento.
+- **Resultado:** [X] Correto  [ ] Incorreto
 
-### Teste 3: Pergunta fora do escopo
+### Teste 3: Pergunta fora do escopo (Foco em Segurança e Coerência)
 - **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** Agente informa que é um assistente focado estritamente em organização financeira e não tem acesso a dados meteorológicos
+- **Resultado:** [X] Correto  [ ] Incorreto
 
-### Teste 4: Informação inexistente
+### Teste 4: Informação inexistente ou incompleta (Foco em Assertividade)
 - **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** Agente admite não ter essa informação em sua base de dados, em vez de tentar adivinhar ou inventar uma taxa de rendimento.
+- **Resultado:** [X] Correto  [ ] Incorreto
+
+---
+
+## Formulário de Feedback (Sugestão)
+
+Use com os participantes do teste:
+
+| Métrica | Pergunta | Nota (1-5) |
+|---------|----------|------------|
+| Assertividade | "O Cadu conseguiu entender seus registros e responder corretamente às suas dúvidas sobre os gastos?" | ___ |
+| Segurança | "As informações pareceram confiáveis e o agente deixou claro o que ele não consegue fazer?" | ___ |
+| Coerência | "A linguagem do agente foi clara, educativa e manteve um tom adequado durante toda a conversa?" | ___ |
+
+**Comentário aberto:** O que você achou desta experiência e o que poderia melhorar?
 
 ---
 
@@ -53,19 +71,10 @@ Crie testes simples para validar seu agente:
 Após os testes, registre suas conclusões:
 
 **O que funcionou bem:**
-- [Liste aqui]
+- A extração de dados do arquivo .csv ocorreu sem erros e os cálculos matemáticos bateram com as perguntas.
+- O bloqueio contra dicas de investimentos e previsões de mercado foi acionado 100% das vezes que foi testado.
+- A persona manteve-se educativa e não julgou os gastos excedentes do usuário.
 
 **O que pode melhorar:**
-- [Liste aqui]
-
----
-
-## Métricas Avançadas (Opcional)
-
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
-
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+- O agente teve certa dificuldade em classificar categorias quando a despesa utilizou muitas gírias; as instruções do prompt precisam ser refinadas para melhorar o entendimento de linguagem coloquial.
+- A transição quando ele recusa uma tarefa (ex: fazer um PIX) está muito robótica, precisamos deixar a resposta de negação um pouco mais empática e leve.

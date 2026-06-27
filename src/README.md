@@ -1,24 +1,17 @@
-# Código da Aplicação
+# Passo a Passo de Execução
 
-Esta pasta contém o código do seu agente financeiro.
-
-## Estrutura Sugerida
+## Setup do Gemini
 
 ```
-src/
-├── app.py              # Aplicação principal (Streamlit/Gradio)
-├── agente.py           # Lógica do agente
-├── config.py           # Configurações (API keys, etc.)
-└── requirements.txt    # Dependências
+# 1. Acesse (https://aistudio.google.com/apikey), faça login, clique em Criar Chave API e copie a chave
+# 2. Crie um arquivo .env na raiz do projeto.
+# 3. Copie o conteúdo do .env.exemplo e cole no .env
+# 4. Cole sua propia chave do Gemini
 ```
 
-## Exemplo de requirements.txt
+## Código Completo
 
-```
-streamlit
-openai
-python-dotenv
-```
+Todo o código-fonte está no arquivo `app.py`.
 
 ## Como Rodar
 
@@ -27,5 +20,8 @@ python-dotenv
 pip install -r requirements.txt
 
 # Rodar a aplicação
-streamlit run app.py
+streamlit run ./src/app.py
 ```
+
+## Evidência de Execução
+<img alt="imagem da tela inicial" src="../assets/Tela_inicial.png"/>
