@@ -1,149 +1,119 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 💰 CADU — Seu Educador Financeiro com IA
 
-## Contexto
-
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+> Agente inteligente que ajuda jovens adultos a controlar gastos invisíveis (delivery, assinaturas, transporte) de forma leve e sem julgamentos.
 
 ---
 
-## O Que Você Deve Entregar
+## O que é o CADU?
 
-### 1. Documentação do Agente
+O **CADU** é um assistente financeiro conversacional desenvolvido com IA Generativa. Ele não recomenda investimentos — ele **educa**. O usuário registra gastos via mensagem, o Cadu categoriza automaticamente e envia alertas de orçamento quando necessário.
 
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+**Público-alvo:** Jovens adultos e profissionais que querem organizar as finanças pelo celular, mas têm preguiça de planilhas.
 
 ---
 
-### 2. Base de Conhecimento
+## Funcionalidades
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+- Registro rápido de gastos via chat
+- Categorização automática (Alimentação, Assinaturas, Transporte, Lazer, Cuidados)
+- Alertas de limite de orçamento por categoria
+- Consulta de gastos por período ou categoria
+- Bloqueio total de recomendações de investimentos
+- Confirmação antes de registrar valores acima de R$ 500,00
 
 ---
 
-### 3. Prompts do Agente
+## Arquitetura
 
-Documente os prompts que definem o comportamento do seu agente:
+```
+Usuário → Interface (Streamlit) → LLM (Gemini) → Base de Conhecimento (CSV/JSON) → Resposta
+```
 
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+| Componente | Tecnologia |
+|---|---|
+| Interface | Streamlit |
+| LLM | Google Gemini |
+| Base de dados | JSON e CSV mockados (`/data`) |
 
 ---
 
 ## Estrutura do Repositório
 
 ```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+📁 assistente-virtual-ia/
+├── 📁 data/
+│   ├── transacoes.csv
+│   ├── historico_atendimento.csv
+│   ├── perfil_investidor.json
+│   └── produtos_financeiros.json
+├── 📁 docs/
+│   ├── 01-documentacao-agente.md   # Persona, caso de uso e arquitetura
+│   ├── 02-base-conhecimento.md     # Estratégia de dados
+│   ├── 03-prompts.md               # System prompt e exemplos de interação
+│   ├── 04-metricas.md              # Avaliação e resultados dos testes
+│   └── 05-pitch.md                 # Roteiro do pitch
+├── 📁 src/
+│   └── app.py                      # Aplicação Streamlit
+├── 📁 assets/
+├── .env.exemplo
+└── README.md
 ```
 
 ---
 
-## Dicas Finais
+## Como Executar
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+```bash
+# 1. Clone o repositório
+git clone https://github.com/EduMooz/assistente-virtual-ia.git
+cd assistente-virtual-ia
+
+# 2. Instale as dependências
+pip install -r requirements.txt
+
+# 3. Configure as variáveis de ambiente
+cp .env.exemplo .env
+# Adicione sua chave de API no arquivo .env
+
+# 4. Execute a aplicação
+streamlit run src/app.py
+```
+
+---
+
+## Exemplos de Conversa
+
+**Registro de gasto:**
+> Usuário: "Pedi um lanche de 45 reais agora."
+> Cadu: "Anotado! Lancei R$ 45,00 em 'Alimentação'. Tá no controle!"
+
+**Tentativa de recomendação de investimento:**
+> Usuário: "Onde eu invisto meu dinheiro?"
+> Cadu: "Isso foge da minha alçada! Sou focado em organização do dia a dia. Quer revisar seus gastos e ver quanto sobrou esse mês?"
+
+---
+
+## Avaliação
+
+Todos os 4 testes documentados em [`docs/04-metricas.md`](docs/04-metricas.md) foram aprovados:
+
+| Teste | Foco | Resultado |
+|---|---|---|
+| Consulta de gastos | Assertividade | ✅ Correto |
+| Recusa de recomendação de investimento | Segurança | ✅ Correto |
+| Pergunta fora do escopo | Segurança e Coerência | ✅ Correto |
+| Informação inexistente na base | Assertividade | ✅ Correto |
+
+---
+
+## Limitações Declaradas
+
+O CADU **não** realiza pagamentos, PIX ou transferências; não recomenda produtos financeiros; não prevê cenários macroeconômicos; e não armazena senhas ou dados de cartão.
+
+---
+
+## Desenvolvido por
+
+**EduMooz** · Desafio DIO — Agente Financeiro com IA Generativa
+
+[![GitHub](https://img.shields.io/badge/GitHub-EduMooz-181717?logo=github)](https://github.com/EduMooz)
