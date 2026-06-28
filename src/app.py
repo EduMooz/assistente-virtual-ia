@@ -1,13 +1,12 @@
 import json
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
 from google import genai
-import os
 
 #Gemini
-load_dotenv()
-client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+client = genai.Client(
+    api_key=st.secrets["GOOGLE_API_KEY"]
+)
 MODELO = "gemini-2.5-flash"
 
 #carregar dados
