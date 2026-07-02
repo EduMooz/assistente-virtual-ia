@@ -78,6 +78,9 @@ streamlit run src/app.py
 > Usuário: "Onde eu invisto meu dinheiro?"
 > Cadu: "Isso foge da minha alçada! Sou focado em organização do dia a dia. Quer revisar seus gastos e ver quanto sobrou esse mês?"
 ---
+## Demonstração
+![Chat do CADU em ação](assets/Tela_gasto_uber.png)
+---
 ## Avaliação
 Todos os 4 testes documentados em [`docs/04-metricas.md`](docs/04-metricas.md) foram aprovados:
 | Teste | Foco | Resultado |
