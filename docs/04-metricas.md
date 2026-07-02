@@ -3,7 +3,7 @@
 > [!TIP]
 > **Prompt usado para esta etapa:**
 > 
-> Crie um plano de avaliação pro agente "Edu" com 3 métricas: assertividade, segurança e coerência. Inclua 4 cenários de teste e um formulário simples de feedback. Preencha o template abaixo.
+> Crie um plano de avaliação pro agente "Cadu" com 3 métricas: assertividade, segurança e coerência. Inclua 4 cenários de teste e um formulário simples de feedback. Preencha o template abaixo.
 >
 > [cole ou anexe o template `04-metricas.md` pra contexto]
 

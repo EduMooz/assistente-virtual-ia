@@ -3,10 +3,11 @@
 ## Setup do Gemini
 
 ```
-# 1. Acesse (https://aistudio.google.com/apikey), faça login, clique em Criar Chave API e copie a chave
-# 2. Crie um arquivo .env na raiz do projeto.
-# 3. Copie o conteúdo do .env.exemplo e cole no .env
-# 4. Cole sua propia chave do Gemini
+1. Acesse https://aistudio.google.com/apikey, faça login, clique em "Criar Chave API" e copie a chave
+2. Crie a pasta `.streamlit` na raiz do projeto (se não existir)
+3. Dentro dela, crie o arquivo `secrets.toml`
+4. Copie o conteúdo de `.streamlit/secrets.toml.example` para o `secrets.toml`
+5. Cole sua chave no lugar de `sua-chave-aqui`
 ```
 
 ## Código Completo
