@@ -26,6 +26,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 - o arquivo de produtos_financeiros.json foi alterado para categoria_despesas.json assim como o conteudo, pois como o foco do agente é lidar com despesas do dia a dia e há uma regra rígida proibindo recomendações de investimentos, manter um arquivo sobre Tesouro Direto e Fundos pode confundir o LLM e gerar alucinações.
 - o arquivo perfil_investidor.json foi alterado para perfil_usuario, alem disso, o conteúdo foi alterado para que o LLM não tenha "gatilhos" para falar sobre investimentos.
+- o arquivo historico_atendimento.csv representa atendimentos anteriores simulados, usados como contexto de leitura para o agente responder com mais consistência. Nesta versão, é um dado estático (não é atualizado a cada nova conversa); a persistência de histórico real de conversas fica como evolução futura do projeto.
 
 ---
 
